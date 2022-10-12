@@ -2,7 +2,20 @@
 
 require_relative "yintii2_palindrome/version"
 
-module Yintii2Palindrome
-  class Error < StandardError; end
-  # Your code goes here...
+class String
+  def palindrome?
+    processed_content == processed_content.reverse
+  end
+
+  #returns the letters of the string
+  def letters
+    self.chars.select { |c| c.match(/[\w]/i)}.join
+  end
+
+  private
+  def processed_content
+    scan(/[\w]/i).join.downcase
+  end
+
+
 end

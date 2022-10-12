@@ -7,7 +7,20 @@ class TestYintii2Palindrome < Minitest::Test
     refute_nil ::Yintii2Palindrome::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
+  def test_non_palindrome
+    refute "beans".palindrome?
   end
+
+  def test_palindrome
+    assert "racecar".palindrome?
+  end
+
+  def test_mixed_case_palindrome
+    assert "rACecAR".palindrome?
+  end
+
+  def test_palindrome_with_punctuation
+    assert "Able was I, ere I saw Elba.".palindrome?
+  end
+
 end
